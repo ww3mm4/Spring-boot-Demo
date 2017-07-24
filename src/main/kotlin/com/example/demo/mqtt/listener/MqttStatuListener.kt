@@ -11,7 +11,6 @@ import org.eclipse.paho.client.mqttv3.MqttMessage
 class MqttStatuListener : MqttCallback {
     override fun messageArrived(topic: String, message: MqttMessage) {
         System.out.println("messageArrived—>topic=${topic} message=${String(message.payload)}")
-
     }
 
     override fun connectionLost(cause: Throwable?) {
@@ -19,6 +18,10 @@ class MqttStatuListener : MqttCallback {
     }
 
     override fun deliveryComplete(token: IMqttDeliveryToken?) {
-        System.out.println("deliveryComplete—>token=${token.toString()} }")
+        token?.topics?.forEach {
+            System.out.println("deliveryComplete—>client=${token?.client?.clientId} " +
+                    "topics=${it} messageId = ${token?.messageId}}")
+        }
+
     }
 }
