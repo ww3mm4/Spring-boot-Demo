@@ -1,5 +1,6 @@
 package com.example.demo.mqtt.listener
 
+import com.example.demo.mqtt.MqttUtil
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken
 import org.eclipse.paho.client.mqttv3.MqttCallback
 import org.eclipse.paho.client.mqttv3.MqttMessage
@@ -15,6 +16,7 @@ class MqttStatuListener : MqttCallback {
 
     override fun connectionLost(cause: Throwable?) {
         System.out.println("mqtt connectionLost")
+        MqttUtil.connect()
     }
 
     override fun deliveryComplete(token: IMqttDeliveryToken?) {
