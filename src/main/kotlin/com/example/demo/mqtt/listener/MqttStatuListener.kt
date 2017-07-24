@@ -16,7 +16,6 @@ class MqttStatuListener : MqttCallback {
 
     override fun connectionLost(cause: Throwable?) {
         System.out.println("mqtt connectionLost")
-        MqttUtil.connect()
     }
 
     override fun deliveryComplete(token: IMqttDeliveryToken?) {

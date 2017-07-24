@@ -12,7 +12,10 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
  */
 object MqttUtil {
 
-    private val connOpts = MqttConnectOptions().apply { isCleanSession = true }
+    private val connOpts = MqttConnectOptions().apply {
+        isCleanSession = false
+        isAutomaticReconnect = true
+    }
 
 
     private val sampleClient by lazy {
