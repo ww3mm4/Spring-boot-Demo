@@ -8,7 +8,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage
  * Created by zhangyao on 17/7/24.
  * 监听mqtt的状态
  */
-class MqttClientCallback : MqttCallback {
+class MqttStatuListener : MqttCallback {
     override fun messageArrived(topic: String, message: MqttMessage) {
         System.out.println("messageArrived—>topic=${topic} message=${String(message.payload)}")
 

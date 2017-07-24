@@ -1,8 +1,7 @@
 package com.example.demo.mqtt
 
 import com.example.demo.mqtt.config.MqttConfig
-import com.example.demo.mqtt.listener.MqttClientCallback
-import com.example.demo.mqtt.listener.SubscripMsgListener
+import com.example.demo.mqtt.listener.MqttStatuListener
 import org.eclipse.paho.client.mqttv3.*
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
 
@@ -25,7 +24,7 @@ object MqttUtil {
      * 连接mqtt服务器
      */
     fun connect() {
-        sampleClient.setCallback(MqttClientCallback())
+        sampleClient.setCallback(MqttStatuListener())
         sampleClient.connect(connOpts)
     }
 
