@@ -41,7 +41,7 @@ object MqttUtil {
     /***
      * 发送mqtt消息
      */
-    fun pushMsg(topic:String,qos: Int,msg:String?) {
+    fun pushMsg(topic:String,msg:String?,qos: Int = MqttConfig.QOS) {
         msg ?: return
         val message = MqttMessage(msg.toByteArray()).apply {
             this.qos =qos
