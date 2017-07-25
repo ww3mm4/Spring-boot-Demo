@@ -18,7 +18,7 @@ class SubscripMsgListener : IMqttMessageListener{
 
     override fun messageArrived(topic: String, message: MqttMessage) {
         val msg = message.toMqttMsg()
-        System.out.println("subscrip msg --> topic=${topic} " +
+        MqttUtil.log.debug("subscrip msg --> topic=${topic} " +
                 "message=${msg?.body}")
     }
 

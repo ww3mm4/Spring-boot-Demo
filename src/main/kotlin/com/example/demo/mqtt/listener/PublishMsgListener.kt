@@ -11,7 +11,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage
  */
 class PublishMsgListener : IMqttMessageListener {
     override fun messageArrived(topic: String, message: MqttMessage) {
-        System.out.println("subscrip msg-> topic=${topic}  message=${String(message.payload)}")
+        MqttUtil.log.debug("subscrip msg-> topic=${topic}  message=${String(message.payload)}")
         MqttUtil.pushMsg(MqttConfig.SUBSCRIBE_TOPIC,"asdasdas".toMqttMsg().toString())
     }
 }

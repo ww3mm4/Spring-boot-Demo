@@ -2,6 +2,7 @@ package com.example.demo.mqtt
 
 import com.example.demo.mqtt.config.MqttConfig
 import com.example.demo.mqtt.listener.MqttStatuListener
+import org.slf4j.LoggerFactory;
 import org.eclipse.paho.client.mqttv3.*
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
 
@@ -11,6 +12,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
  * mqtt的工具类
  */
 object MqttUtil {
+    val log = LoggerFactory.getLogger("mqtt")
 
     private val connOpts = MqttConnectOptions().apply {
         isCleanSession = false
